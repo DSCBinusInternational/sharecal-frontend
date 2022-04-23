@@ -7,7 +7,8 @@ export function randArray(items) {
 export function randWords(len) {
   let result = "";
   for (let i = 0; i < len; i++) {
-    result += randArray(words).toUpperCase();
+    const word = randArray(words);
+    result += word[0].toUpperCase() + word.substr(1);
   }
   return result;
 }
