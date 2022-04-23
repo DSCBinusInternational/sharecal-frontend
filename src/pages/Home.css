@@ -13,3 +13,32 @@
 .cyan {
   color: #48E5C2;
 }
+
+.main-form {
+  margin-top: 32px;
+}
+
+.form-box {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.form-box label {
+  margin-right: 32px;
+  font-size: 1.25rem;
+}
+
+.buttons {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.buttons > * + * {
+  margin-left: 16px;
+}
+
+h5 {
+  color: #ccc;
+}
