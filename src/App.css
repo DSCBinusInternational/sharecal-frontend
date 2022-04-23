@@ -1,0 +1,7 @@
+.App {
+  background-color: #000f10;
+  height: 100vh; /* 100% height of the browser */
+  color: white;
+  background-image: url("./assets/index-background-01.svg");
+  background-size: cover;
+}
