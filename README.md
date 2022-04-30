@@ -5,6 +5,9 @@ This is the greatest ShareCal Frontend react repository of all time
 Make sure you have node.js installed in your computer
 
 1. Clone the repository
+```sh
+git clone https://github.com/DSCBinusInternational/sharecal-frontend.git
+```
 2. Install all the libraries
 ```sh
 npm install
@@ -22,12 +25,13 @@ Now doing:
 - [x] Reusable components
 - [x] States (Variables) and prop drilling!
 - [x] Functions
-- [ ] Font
-- [ ] Routing
-- [ ] External libraries
-- [ ] Using the calendar
+- [x] Font
+- [x] Routing
+- [x] External libraries
+- [x] Using the calendar
+- [x] Calendar Logic
 - [ ] Calendar contents and data
-- [ ] Deployment
+- [ ] Pop ups
 - [ ] HTTP Requests
 - [ ] Getting data from the backend
 - [ ] Pushing data to the backend
