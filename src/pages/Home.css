@@ -42,3 +42,11 @@
 h5 {
   color: #ccc;
 }
+
+h1, h2 {
+  font-weight: 400;
+}
+
+h2 {
+  font-family: 'Jost', sans-serif;
+}

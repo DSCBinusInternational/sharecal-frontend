@@ -1,8 +1,12 @@
 input[type="button"] {
-  padding: 8px 40px;
+  padding: 0 16px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+
+  min-width: 120px;
+  height: 40px;
 }
 
 .bordered {

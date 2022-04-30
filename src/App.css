@@ -2,6 +2,13 @@
   background-color: #000f10;
   height: 100vh; /* 100% height of the browser */
   color: white;
-  background-image: url("./assets/index-background-01.svg");
   background-size: cover;
+}
+
+.index-bg {
+  background-image: url("./assets/index-background-01.svg");
+}
+
+.cal-bg {
+  background-image: url("./assets/calendar-background-01.svg");
 }

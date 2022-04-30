@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.header .header-logo {
+  height: 48px;
+}
+
+.header .right-header {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header .right-header > * + * {
+  margin-left: 16px;
+}
+
+.main-content-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  width: 800px;
+}

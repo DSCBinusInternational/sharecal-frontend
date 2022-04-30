@@ -4,4 +4,5 @@ input[type="text"] {
   padding: 10px 6px;
   border-radius: 8px;
   background-color: #e6e6e6;
+  font-family: 'JetBrains Mono', monospace;
 }
