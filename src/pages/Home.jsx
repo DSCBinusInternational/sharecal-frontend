@@ -3,11 +3,14 @@ import mainLogo from "../assets/main_logo.png";
 import Button from "../common/Button";
 import InputBox from "../common/InputBox";
 import { randWords } from "../misc/util";
+import { addCalendar } from "./Calendar/fetches";
+import dayjs from "dayjs";
 import "./Home.css"
 
 function Home() {
 
   const [calName, setCalName] = useState("");
+  const [pass, setPass] = useState("");
 
   return <div className="container">
     <div>
@@ -22,11 +25,21 @@ function Home() {
       </div>
       <div className="form-box">
         <label>Enter Passcode:</label>
-        <InputBox placeholder="Passcode" />
+        <InputBox placeholder="Passcode" value={pass} onChange={setPass} />
       </div>
     </form>
     <div className="buttons">
-      <Button name="Create" />
+      <Button name="Create" onClick={() => {
+        addCalendar(
+          calName,
+          "Calendar Created",
+          "Created",
+          pass,
+          "#555555",
+          dayjs().toISOString(),
+          dayjs().toISOString(),
+        )
+      }} />
       <Button name="Random Name"
         isBordered
         onClick={function() {
