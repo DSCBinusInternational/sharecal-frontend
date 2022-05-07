@@ -5,8 +5,9 @@ import TimeInput from "../../common/TimeInput";
 import "./AddEntry.css";
 
 import dayjs from "dayjs";
+import { backendUrl } from "../../constants";
 
-function AddEntry({onSubmit}) {
+function AddEntry({ calName }) {
 
   const date = dayjs();
 
@@ -80,7 +81,23 @@ function AddEntry({onSubmit}) {
     <InputBox value={note} onChange={setNote} />
     <h3>Passcode</h3>
     <InputBox value={pass} onChange={setPass} dark mini />
-    <div class="flex-end"><Button name="Add" dark onClick={onSubmit} /></div>
+    <div class="flex-end"><Button name="Add" onClick={() => {
+      fetch(backendUrl + "/cal/" + calName, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          eventname: title,
+          notes: note,
+          pass: pass,
+          color: color,
+          start: dayjs(`${startDate.year}-${startDate.month}-${startDate.date+1} ${startDate.time}`, "YYYY-M-D HH:mm"),
+          end: dayjs(`${endDate.year}-${endDate.month}-${endDate.date+1} ${endDate.time}`, "YYYY-M-D HH:mm")
+        })
+      })
+    }} /></div>
   </div>
 }
 

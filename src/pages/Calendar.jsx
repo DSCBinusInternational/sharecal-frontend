@@ -50,7 +50,7 @@ function Calendar() {
       <img className="header-logo" src={headerLogo} alt="Header Logo" />
       <div className="right-header">
         <Popup className="calendar-modal" trigger={<Button name="+Add" />} modal nested>
-        <AddEntry />
+        <AddEntry calName={id} />
         </Popup>
         <Popup className="calendar-modal" trigger={<Button name="Share" isBordered />} modal nested>
           <h3>Share</h3>
