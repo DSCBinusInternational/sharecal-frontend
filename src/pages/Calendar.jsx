@@ -20,11 +20,22 @@ function Calendar() {
   const { id } = useParams();
   
   useEffect(() => {
-    fetch(backendUrl + "/cal/" + id).then(response => response.json()).then((data) => {
-      setCalendar({
-        state: "loaded",
-        calendar: data,
-      });
+    fetch(backendUrl + "/cal/" + id).then(response => {
+
+      if (response.ok) {
+        response.json().then(data => {
+          setCalendar({
+            state: "loaded",
+            calendar: data,
+          });
+        })
+      } else {
+        alert("Calendar does not exist!");
+        setCalendar({
+          state: "error",
+          calendar: {},
+        })
+      }
     }).catch((reason) => {
       alert("HTTP Request failed!\n" + reason);
       setCalendar({
@@ -33,8 +44,6 @@ function Calendar() {
       })
     });
   }, [id]);
-
-  console.log(calendar);
 
   return <div>
     <div className="header">
