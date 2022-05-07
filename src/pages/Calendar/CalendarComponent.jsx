@@ -2,11 +2,12 @@ import "./CalendarComponent.css";
 import dayjs from "dayjs";
 
 const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-function CalendarComponent() {
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+function CalendarComponent({calendar}) {
 
   const date = dayjs();
+
   const startingDayPos = date.date(1).day();
   const daysInPrevMonth = date.month(date.month() - 1).daysInMonth();
   const daysInCurMonth = date.daysInMonth();
@@ -22,6 +23,14 @@ function CalendarComponent() {
   for (let i = 0; i < daysInCurMonth; i++) {
     $curMonth.push(<div className="cell dates">
       {i + 1}
+      {
+        (calendar.state === "loaded") &&
+        calendar.calendar.data?.[date.year()]?.[date.month()+1]?.[i+1]?.map(({name, color}) => (
+          <div className="event-cell" style={{
+            backgroundColor: color,
+          }}>{name}</div>
+        ))
+      }
     </div>)
   }
 

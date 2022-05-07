@@ -27,3 +27,17 @@
 .main-content {
   width: 800px;
 }
+
+.popup-content.calendar-modal-content {
+  background: #093A3E;
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  padding: 24px 32px;
+}
+
+.popup-content.calendar-modal-content > * + * {
+  margin-top: 8px;
+}

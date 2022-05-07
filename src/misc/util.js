@@ -12,3 +12,10 @@ export function randWords(len) {
   }
   return result;
 }
+
+export function findFirstDiffPos(a, b) {
+  var i = 0;
+  if (a === b) return -1;
+  while (a[i] === b[i]) i++;
+  return i;
+}

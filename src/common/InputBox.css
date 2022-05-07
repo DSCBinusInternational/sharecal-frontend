@@ -5,4 +5,14 @@ input[type="text"] {
   border-radius: 8px;
   background-color: #e6e6e6;
   font-family: 'JetBrains Mono', monospace;
+  width: 100%;
+}
+
+input[type="text"].dark {
+  background: #001011;
+  color: white;
+}
+
+input[type="text"].mini {
+  padding: 2px 6px;
 }

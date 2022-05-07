@@ -1,0 +1,45 @@
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.date-choose {
+  justify-content: flex-end;
+  max-width: 420px;
+  align-items: center;
+}
+
+.date-choose h3 {
+  margin-right: 32px;
+}
+
+.add-entry > * + * {
+  margin-top: 8px;
+}
+
+.date-choose input[type="text"].sm {
+  width: 24px;
+}
+
+.date-choose input[type="text"].md {
+  width: 48px;
+}
+
+.date-choose input[type="text"].time {
+  width: 60px;
+  margin-left: 64px;
+}
+
+.input-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 16px;
+  border: 0;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}

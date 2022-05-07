@@ -13,8 +13,14 @@
 .main-calendar .cell.dates {
   border: 1px white solid;
   height: 96px;
+  overflow: auto;
 }
 
 .main-calendar .prev-month {
   color: #aaa;
+}
+
+.main-calendar .dates .event-cell {
+  border-radius: 8px;
+  font-size: 0.75rem;
 }
