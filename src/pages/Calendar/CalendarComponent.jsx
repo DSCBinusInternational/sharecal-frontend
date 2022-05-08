@@ -14,19 +14,19 @@ function CalendarComponent({calendar}) {
 
   const $prevMonth = [];
   for (let i = 0; i < startingDayPos; i++) {
-    $prevMonth.push(<div className="cell dates prev-month">
+    $prevMonth.push(<div className="cell dates prev-month" key={String(date.month()-1) + i}>
       {daysInPrevMonth - startingDayPos + i + 1}
     </div>)
   }
 
   const $curMonth = [];
   for (let i = 0; i < daysInCurMonth; i++) {
-    $curMonth.push(<div className="cell dates">
+    $curMonth.push(<div className="cell dates" key={String(date.month()) + i}>
       {i + 1}
       {
         (calendar.state === "loaded") &&
         calendar.calendar.data?.[date.year()]?.[date.month()+1]?.[i+1]?.map(({name, color}) => (
-          <div className="event-cell" style={{
+          <div key={name} className="event-cell" style={{
             backgroundColor: color,
           }}>{name}</div>
         ))
@@ -39,7 +39,7 @@ function CalendarComponent({calendar}) {
     <div className="main-calendar">
       {
         days.map((day) => (
-          <div className="cell">{day}</div>
+          <div className="cell" key={day}>{day}</div>
         ))
       }
       {

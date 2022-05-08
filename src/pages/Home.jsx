@@ -6,8 +6,11 @@ import { randWords } from "../misc/util";
 import { addCalendar } from "./Calendar/fetches";
 import dayjs from "dayjs";
 import "./Home.css"
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+
+  const navigate = useNavigate();
 
   const [calName, setCalName] = useState("");
   const [pass, setPass] = useState("");
@@ -30,14 +33,17 @@ function Home() {
     </form>
     <div className="buttons">
       <Button name="Create" onClick={() => {
-        addCalendar(
-          calName,
-          "Calendar Created",
-          "Created",
-          pass,
-          "#555555",
-          dayjs().toISOString(),
-          dayjs().toISOString(),
+        addCalendar({
+            calName: calName,
+            eventname: "Calendar Created",
+            notes: "Created",
+            pass: pass,
+            color: "#555555",
+            start: dayjs().toISOString(),
+            end: dayjs().toISOString(),
+          },
+          () => { navigate("/cal/" + calName) },
+          () => { alert(`Error creating calendar ${calName}! Try again later.`) }
         )
       }} />
       <Button name="Random Name"

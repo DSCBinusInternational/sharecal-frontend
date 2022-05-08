@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={
-        <div className="App index-bg">
+        <div className="App index-bg center-container">
           <Home />
         </div>
       } />

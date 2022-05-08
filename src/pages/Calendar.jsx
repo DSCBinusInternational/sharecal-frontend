@@ -9,6 +9,7 @@ import AddEntry from './Calendar/AddEntry';
 import { useEffect, useState } from 'react';
 import { backendUrl } from '../constants';
 import { useParams } from 'react-router-dom';
+import { mergeDeep } from '../misc/util';
 
 function Calendar() {
 
@@ -50,7 +51,12 @@ function Calendar() {
       <img className="header-logo" src={headerLogo} alt="Header Logo" />
       <div className="right-header">
         <Popup className="calendar-modal" trigger={<Button name="+Add" />} modal nested>
-        <AddEntry calName={id} />
+         {close => (
+            <AddEntry calName={id} close={close} addCalEntry={(entry) => {
+              setCalendar({ ...calendar, calendar: mergeDeep(calendar.calendar, entry) });
+            }} />
+          )
+         }
         </Popup>
         <Popup className="calendar-modal" trigger={<Button name="Share" isBordered />} modal nested>
           <h3>Share</h3>
