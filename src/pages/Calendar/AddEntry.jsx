@@ -93,22 +93,26 @@ function AddEntry({ calName, close, addCalEntry }) {
       };
       addCalendar(
         calEntry,
-        () => {
-          addCalEntry({
-            data: {
-              [startDate.year]: {
-                [startDate.month]: {
-                  [startDate.date]: [{
-                    name: calEntry.eventname,
-                    time: [ calEntry.start, calEntry.end ],
-                    notes: calEntry.notes,
-                    color: calEntry.color,
-                  }]
+        (response) => {
+          if (response.ok) {
+            addCalEntry({
+              data: {
+                [startDate.year]: {
+                  [startDate.month]: {
+                    [startDate.date]: [{
+                      name: calEntry.eventname,
+                      time: [ calEntry.start, calEntry.end ],
+                      notes: calEntry.notes,
+                      color: calEntry.color,
+                    }]
+                  }
                 }
               }
-            }
-          });
-          close();
+            });
+            close();
+          } else {
+            alert("Wrong password!");
+          }
         },
         (err) => { alert("Error adding calendar " + err); }
       )
