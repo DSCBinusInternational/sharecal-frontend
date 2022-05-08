@@ -1,5 +1,6 @@
 import "./CalendarComponent.css";
 import dayjs from "dayjs";
+import Popup from 'reactjs-popup';
 
 const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -25,10 +26,19 @@ function CalendarComponent({calendar}) {
       {i + 1}
       {
         (calendar.state === "loaded") &&
-        calendar.calendar.data?.[date.year()]?.[date.month()+1]?.[i+1]?.map(({name, color}) => (
-          <div key={name} className="event-cell" style={{
+        calendar.calendar.data?.[date.year()]?.[date.month()+1]?.[i+1]?.map(({name, color, time, notes}) => (
+          <Popup className="event-modal" modal nested trigger={<div key={name} className="event-cell" style={{
             backgroundColor: color,
-          }}>{name}</div>
+          }}>{name}</div>}>
+            <h2>{name}</h2>
+            <div style={{
+              backgroundColor: color,
+              }} className="color-cell" />
+            <hr />
+            <h3>Begin: {dayjs(time[0]).toString()}</h3>
+            <h3>End: {dayjs(time[0]).toString()}</h3>
+            <p className="note">{notes}</p>
+          </Popup>
         ))
       }
     </div>)
@@ -37,17 +47,11 @@ function CalendarComponent({calendar}) {
   return <div className="calendar">
     <h1>{month[date.month()]} {date.year()}</h1>
     <div className="main-calendar">
-      {
-        days.map((day) => (
-          <div className="cell" key={day}>{day}</div>
-        ))
-      }
-      {
-        $prevMonth
-      }
-      {
-        $curMonth
-      }
+      {days.map((day) => (
+        <div className="cell" key={day}>{day}</div>
+      ))}
+      { $prevMonth }
+      { $curMonth }
     </div>
   </div>
 }
