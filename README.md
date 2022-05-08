@@ -1,6 +1,9 @@
 # sharecal-frontend
 This is the greatest ShareCal Frontend react repository of all time
 
+## The app is complete! Visit us here:
+### [https://sharycally.web.app](https://sharycally.web.app/)
+
 ## Installation
 Make sure you have node.js installed in your computer
 
@@ -30,8 +33,9 @@ Now doing:
 - [x] External libraries
 - [x] Using the calendar
 - [x] Calendar Logic
-- [ ] Calendar contents and data
-- [ ] Pop ups
-- [ ] HTTP Requests
-- [ ] Getting data from the backend
-- [ ] Pushing data to the backend
+- [x] Calendar contents and data
+- [x] Pop ups
+- [x] HTTP Requests
+- [x] Getting data from the backend
+- [x] Showing data on the calendar
+- [x] Pushing data to the backend
